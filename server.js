@@ -20,6 +20,8 @@ const PORT = process.env.PORT || 5000;
 server.use(bodyParser.json());
 server.use(cors());
 
+server.get('/favicon.ico', (req, res) => res.status(204));
+
 server.use('/updateTodo', UpdateTodoRoute);
 
 server.use('/deleteTodo', DeleteTodoRoute);
