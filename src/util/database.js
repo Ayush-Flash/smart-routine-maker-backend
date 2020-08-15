@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
-const _url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.0vmhn.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
-
 class Database {
     constructor() {
         this._connect();
     }
 
     _connect() {
-        mongoose.connect(_url, {
+        mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
